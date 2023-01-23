@@ -1,0 +1,35 @@
+﻿@using WebApplication1.Models
+@model Post
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" asp-action="create" enctype="multipart/form-data">
+    <div class="form-group">
+      <div class="col-md-5">
+    <label asp-for="Title" >Title</label>
+            <input asp-for="Title" class="form-control" placeholder="Enter Title">
+      </div>
+  </div>
+    <div >
+        <div class="col-md-10">
+            <label asp-for="Description">Desc</label>
+            <input asp-for="Description" class="form-control" placeholder="Enter Desc">
+        </div>
+    </div><div >
+    <div class="col-md-5">
+            <label asp-for="REdirectUrl">REdirectUrl</label>
+            <input asp-for="REdirectUrl" class="form-control" placeholder="Enter REdirectUrl">
+      </div>
+    </div>
+    <div >
+        <div >
+            <label asp-for="ImageFile">Example file input</label>
+            <input asp-for="ImageFile" type="file" class="form-control-file" id="exampleFormControlFile1">
+            <span asp-validation-for="ImageFile"></span>
+
+        </div>
+    </div>
+    <button type="submit" class="btn btn-info">Create</button>
+    </div>
+  </form>

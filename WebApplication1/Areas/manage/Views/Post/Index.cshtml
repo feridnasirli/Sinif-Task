@@ -1,0 +1,39 @@
+﻿@using WebApplication1.Models
+@using WebApplication1.Controllers
+@model List<Post>
+@{
+    ViewData["Title"] = "Index";
+}
+<div >
+    <h1>Post</h1>
+<a asp-action="create" asp-asp-controller="post" class="btn btn-info">Create</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">REdirectUrl</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Post item in Model)
+        {
+            
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+                <td>
+                    <img style="width:150px" src="~/uploads/posts/@item.Image">
+                </td>
+                <td>@item.REdirectUrl</td>
+            <td>
+                <a asp-action="update" asp-asp-controller="post" asp-route-id="@item.Id" class="btn btn-success">Update</a>
+                <a asp-action="delete" asp-asp-controller="post" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
